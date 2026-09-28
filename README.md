@@ -39,8 +39,7 @@ As variáveis ficam no topo de `assets/css/style.css`, no bloco `:root`. Mudar a
 ## Contatos configurados
 
 - WhatsApp: `+55 27 99783-3072` (links `wa.me/5527997833072`)
-- Instagram portfólio: `@cherryblush.nails`
-- Instagram pessoal: `@sweet_.ana_`
+- Instagram: `@cherryblush.nails`
 
 Para trocar o número, busque por `5527997833072` em `index.html` e em `assets/js/main.js` (constante `WA`).
 
@@ -54,7 +53,7 @@ Para trocar o número, busque por `5527997833072` em `index.html` e em `assets/j
 - Botões magnéticos
 - Faixa de serviços em rolagem infinita
 - Animação de entrada em cada seção
-- Portfólio com filtros (Todas / Francesinhas / Nail Art / Cores)
+- Portfólio em grade, só com as fotos (sem legendas nem categorias)
 - Lightbox com teclado (← → Esc) e swipe no celular
 - Formulário que monta a mensagem e abre o WhatsApp já preenchido
 - Botão flutuante de WhatsApp

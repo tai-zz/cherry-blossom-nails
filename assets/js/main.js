@@ -183,44 +183,24 @@
     });
   }
 
-  /* ---------- filtros do portfólio ---------- */
-  (function () {
-    var items = $$('.gal__i');
-    $$('.filter').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var f = btn.dataset.f;
-        $$('.filter').forEach(function (b) { b.classList.toggle('is-on', b === btn); });
-        items.forEach(function (it) {
-          var show = f === 'all' || it.dataset.cat.split(' ').indexOf(f) > -1;
-          it.classList.toggle('is-out', !show);
-        });
-      });
-    });
-  })();
-
   /* ---------- lightbox ---------- */
   (function () {
-    var lb = $('#lb'), img = $('#lbImg'), cap = $('#lbCap');
+    var lb = $('#lb'), img = $('#lbImg');
     var items = $$('.gal__i');
     var idx = 0;
 
-    function visible() { return items.filter(function (i) { return !i.classList.contains('is-out'); }); }
-
     function show(el) {
-      var src = $('img', el).getAttribute('src');
-      var text = el.dataset.cap || '';
-      img.src = src;
-      img.alt = $('img', el).alt;
-      cap.textContent = text;
-      idx = visible().indexOf(el);
+      var src = $('img', el);
+      img.src = src.getAttribute('src');
+      img.alt = src.alt;
+      idx = items.indexOf(el);
       lb.classList.add('is-open');
       document.body.classList.add('no-scroll');
     }
     function step(n) {
-      var v = visible();
-      if (!v.length) return;
-      idx = (idx + n + v.length) % v.length;
-      show(v[idx]);
+      if (!items.length) return;
+      idx = (idx + n + items.length) % items.length;
+      show(items[idx]);
     }
     function close() { lb.classList.remove('is-open'); document.body.classList.remove('no-scroll'); }
 
