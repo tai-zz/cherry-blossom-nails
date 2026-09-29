@@ -1,0 +1,43 @@
+# Cherry Blossom Nails — site estático, sem build.
+# A pasta inteira já é o site pronto; o Netlify só precisa publicá-la.
+
+[build]
+  publish = "."
+  command = ""
+
+# server.js é só para testar no computador — não faz parte do site publicado.
+[[redirects]]
+  from = "/server.js"
+  to = "/index.html"
+  status = 404
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=()"
+
+# HTML sempre revalida, para uma alteração no texto aparecer na hora.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# CSS e JS: uma hora de cache. Sem hash no nome, então nada de cache eterno.
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Fotos trocam raramente; uma semana de cache.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
