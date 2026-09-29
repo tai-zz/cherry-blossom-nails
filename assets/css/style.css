@@ -555,7 +555,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ============ FAB ============ */
 .fab{
-  position:fixed;right:20px;bottom:20px;z-index:700;
+  position:fixed;right:20px;bottom:76px;z-index:700;
   width:58px;height:58px;border-radius:50%;
   display:grid;place-items:center;color:#fff;
   background:linear-gradient(140deg,#4ac367,#1f9d48);
